@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd7ianx2b570m"]
+
+[ext_resource type="Script" path="res://moco/moco.gd" id="1_e8g7i"]
+
+[node name="moco" type="Node2D"]
+
+[node name="izq" type="Polygon2D" parent="."]
+position = Vector2(408, 175)
+polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+script = ExtResource("1_e8g7i")
+
+[node name="der" type="Polygon2D" parent="."]
+position = Vector2(730, 178)
+polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+script = ExtResource("1_e8g7i")
