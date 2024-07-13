@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var plane_velocity : float
-@export var turn_velocity : float
 @export var target_symbol_velocity : float
+@export var decrease_angular_velocity_factor : float
 
 @export var target_scene : PackedScene
 @export var arrow : Arrow
@@ -11,12 +11,19 @@ extends Node2D
 
 @export var spawnAreaLimits : Rect2
 
+var angular_velocity : float
+
 var target : Target
 
 var tl : float
 var tr : float
 var dl : float
 var dr : float
+
+var processs = true
+
+var plane_angular_velocity = 0
+var moco_angular_velocity = 0
 
 func _ready():
 	newTarget()
@@ -25,6 +32,7 @@ func _ready():
 	tr = fmod(Vector2(cameraRect.x/2, -cameraRect.y/2).angle() + 4*PI, 2*PI)
 	dl = fmod(Vector2(-cameraRect.x/2, cameraRect.y/2).angle() + 4*PI, 2*PI)
 	dr = fmod(Vector2(cameraRect.x/2, cameraRect.y/2).angle() + 4*PI, 2*PI)
+	angular_velocity = 0.0
 
 func _process(delta):
 	camera.position -= Vector2.from_angle(camera.rotation + PI/2) * plane_velocity * delta
@@ -46,11 +54,28 @@ func _process(delta):
 		target_symbol.position += target_symbol_velocity * (mouse_pos - target_symbol.position).normalized()
 	if target_symbol.position.distance_to(mouse_pos) <= target_symbol_velocity:
 			target_symbol.position = mouse_pos
-	if Input.is_action_pressed("ui_left"):
-		turn(-delta*turn_velocity)
-	if Input.is_action_pressed("ui_right"):
-		turn(delta*turn_velocity)
 	arrow.visible = not target.is_on_screen()
+	
+	if angular_velocity != 0:
+		if angular_velocity > 0:
+			angular_velocity -= decrease_angular_velocity_factor
+			if angular_velocity < 0:
+				angular_velocity = 0
+		else:
+			angular_velocity += decrease_angular_velocity_factor
+			if angular_velocity < 0:
+				angular_velocity = 0
+	
+	#if Input.is_action_pressed("ui_left"):
+		#angular_velocity += 1.99
+	#if Input.is_action_pressed("ui_right"):
+		#angular_velocity -= 1.99
+	modifyAngularVelocity(plane_angular_velocity + moco_angular_velocity)
+	
+	print("\t", angular_velocity)
+	if (angular_velocity != 0):
+		turn(angular_velocity * delta)
+	#print(angular_velocity)
 
 func newTarget():
 	target = target_scene.instantiate()
@@ -68,6 +93,14 @@ func destroyTarget(_v, event, _i, targett):
 		print("targetDestroyed")
 		newTarget()
 
+func modifyAngularVelocity(radians):
+	angular_velocity += radians
+
 func turn(radians):
 	camera.rotate(radians)
-	#print("rotated")
+
+func disableCamera():
+	camera.enabled = false
+	
+func enableCamera():
+	camera.enabled = true

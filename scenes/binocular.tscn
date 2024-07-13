@@ -9,8 +9,8 @@
 [node name="Binocular" type="Node2D" node_paths=PackedStringArray("arrow", "camera", "target_symbol")]
 script = ExtResource("1_k0oi4")
 plane_velocity = 50.0
-turn_velocity = 1.0
 target_symbol_velocity = 1.0
+decrease_angular_velocity_factor = 0.5
 target_scene = ExtResource("2_cj21g")
 arrow = NodePath("Camera2D/Arrow")
 camera = NodePath("Camera2D")
