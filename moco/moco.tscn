@@ -6,12 +6,12 @@
 
 [node name="izq" type="Polygon2D" parent="."]
 position = Vector2(408, 175)
-polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 50, 0, 50)
 script = ExtResource("1_e8g7i")
 
 [node name="der" type="Polygon2D" parent="."]
 position = Vector2(730, 178)
-polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 50, 0, 50)
 script = ExtResource("1_e8g7i")
-MIN_VEL_CHANGE = 0.2
-MAX_VEL_CHANGE = 0.5
