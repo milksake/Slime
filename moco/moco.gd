@@ -39,7 +39,7 @@ func _process(delta: float):
 	if (Input.is_action_just_pressed("limpiar_moco_izq") or \
 			Input.is_action_just_pressed("limpiar_moco_der")) and processs:
 		var vel = sign(randf() - 0.5) * randf_range(MIN_VEL_CHANGE, MAX_VEL_CHANGE)
-		moco_vel.emit(vel * delta)
+		moco_vel.emit(vel)
 		print("emitted ", vel)
 	
 	if (Input.is_action_pressed("limpiar_moco_izq") and \
