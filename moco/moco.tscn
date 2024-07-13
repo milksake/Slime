@@ -13,3 +13,5 @@ script = ExtResource("1_e8g7i")
 position = Vector2(730, 178)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 script = ExtResource("1_e8g7i")
+MIN_VEL_CHANGE = 0.2
+MAX_VEL_CHANGE = 0.5
