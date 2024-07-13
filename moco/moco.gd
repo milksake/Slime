@@ -40,17 +40,19 @@ func _process(delta: float):
 		var vel = sign(randf() - 0.5) * randf_range(MIN_VEL_CHANGE, MAX_VEL_CHANGE)
 		moco_vel.emit(vel)
 		print("emitted ", vel)
-		
-	if Input.is_action_pressed("limpiar_moco_izq") != \
-			Input.is_action_pressed("limpiar_moco_der"):
-		if Input.is_action_pressed("limpiar_moco_izq"):
-			actual_size_izq -= MOCO_VEL * delta
-			actual_size_izq = max(actual_size_izq, real_size)
-		else:
-			actual_size_der -= MOCO_VEL * delta
-			actual_size_der = max(actual_size_der, real_size)
+	
+	if Input.is_action_pressed("limpiar_moco_izq") and \
+			!Input.is_action_pressed("limpiar_moco_der"):
+		actual_size_izq -= MOCO_VEL * delta
+		actual_size_izq = max(actual_size_izq, real_size)
 	else:
 		actual_size_izq += vel_izq * delta
+	
+	if Input.is_action_pressed("limpiar_moco_der") and \
+			!Input.is_action_pressed("limpiar_moco_izq"):
+		actual_size_der -= MOCO_VEL * delta
+		actual_size_der = max(actual_size_der, real_size)
+	else:
 		actual_size_der += vel_der * delta
 	
 	$izq.scale.y = actual_size_izq / real_size
