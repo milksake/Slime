@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/binoculares.png-0de9e6fe2b9f2f5ba5b6d15a920db
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
