@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7c4y80v8agw3"]
+[gd_scene load_steps=3 format=3 uid="uid://c7c4y80v8agw3"]
 
 [ext_resource type="Script" path="res://avion/avion.gd" id="1_2mica"]
+[ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://scripts/avioneta.png" id="2_mlaa0"]
 
 [node name="avion" type="Node2D"]
-position = Vector2(550, 340)
+position = Vector2(960, 540)
 script = ExtResource("1_2mica")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-374, -112, 416, -112, -1, 137)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Avioneta" type="Sprite2D" parent="."]
+position = Vector2(-9, 61)
+texture = ExtResource("2_mlaa0")
