@@ -88,8 +88,7 @@ func newTarget():
 
 func destroyTarget(_v, event, _i, targett):
 	if event.is_action_pressed("left_click") and target_symbol.has_overlapping_areas():
-		targett.visible = false
-		targett.call_deferred("queue_free")
+		targett.die()
 		print("targetDestroyed")
 		newTarget()
 
