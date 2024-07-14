@@ -14,8 +14,26 @@ moco = NodePath("moco")
 [node name="Binocular" parent="." instance=ExtResource("2_3wswd")]
 
 [node name="avion" parent="." instance=ExtResource("1_qars4")]
+position = Vector2(941, 501)
 
 [node name="moco" parent="." instance=ExtResource("3_cosy0")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_left = 1670.0
+offset_top = 926.0
+offset_right = 1907.0
+offset_bottom = 1066.0
+
+[node name="MiniScreen" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(215, 140)
+render_target_update_mode = 4
+
+[node name="avion_instance" parent="CanvasLayer/SubViewportContainer/MiniScreen" instance=ExtResource("1_qars4")]
+position = Vector2(110, 70)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="speed_changed" from="avion" to="." method="_on_avion_speed_changed"]
 [connection signal="game_over" from="moco" to="." method="_on_moco_game_over"]

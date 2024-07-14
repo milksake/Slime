@@ -13,6 +13,7 @@ signal speed_changed(new_speed)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process_input(true)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,3 +39,7 @@ func _process(delta):
 	rotation_speed = clamp(rotation_speed, -max_speed, max_speed)
 	rotation += rotation_speed * delta
 	rotation = clamp(rotation, -max_rotation, max_rotation)
+
+func _input(event):
+	if event is InputEventKey:
+		_process(get_process_delta_time())
