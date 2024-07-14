@@ -16,6 +16,7 @@ func is_on_screen() -> bool:
 func die():
 	collision.disabled = true
 	animation.show()
+	$AudioStreamPlayer2D.play()
 	animation.play()
 
 func _on_animated_sprite_2d_frame_changed():

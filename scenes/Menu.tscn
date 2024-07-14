@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_181r6")
 theme_override_font_sizes/font_size = 50
-text = "CONTROLES
+text = "CONTROLS
 "
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]

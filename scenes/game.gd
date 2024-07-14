@@ -63,8 +63,9 @@ func _on_moco_game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func _on_moco_danger():
-	if currScene != 2:
+	if currScene != 2 and !ui.getDangerActivated():
 		ui.activateDanger()
+		$AudioStreamPlayer.play()
 
 func _on_binocular_target_destroyed():
 	targetsDestroyed += 1

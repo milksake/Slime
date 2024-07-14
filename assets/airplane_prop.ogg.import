@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/airplane_prop.ogg-435bd36db66d5bb66c3cb91a94b
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

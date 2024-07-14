@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf03jbbvoc4n6"]
+[gd_scene load_steps=7 format=3 uid="uid://cf03jbbvoc4n6"]
 
 [ext_resource type="PackedScene" uid="uid://c7c4y80v8agw3" path="res://avion/avion.tscn" id="1_qars4"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_wmkvk"]
 [ext_resource type="PackedScene" uid="uid://c02pxyk02f7fw" path="res://scenes/binocular.tscn" id="2_3wswd"]
 [ext_resource type="PackedScene" uid="uid://dd7ianx2b570m" path="res://moco/moco.tscn" id="3_cosy0"]
 [ext_resource type="PackedScene" uid="uid://naiwemymt183" path="res://scenes/game_ui.tscn" id="5_q4mip"]
+[ext_resource type="AudioStream" uid="uid://s8lfxbdxb8t3" path="res://assets/blipSelect.wav" id="6_xnuhn"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("binocular", "avion", "moco", "ui")]
 script = ExtResource("1_wmkvk")
@@ -20,6 +21,11 @@ ui = NodePath("GameUI")
 [node name="moco" parent="." instance=ExtResource("3_cosy0")]
 
 [node name="GameUI" parent="." instance=ExtResource("5_q4mip")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xnuhn")
+volume_db = -10.78
+pitch_scale = 0.78
 
 [connection signal="target_destroyed" from="Binocular" to="." method="_on_binocular_target_destroyed"]
 [connection signal="speed_changed" from="avion" to="." method="_on_avion_speed_changed"]

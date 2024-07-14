@@ -26,3 +26,6 @@ func deactivateDanger():
 
 func setTargets(num):
 	scoreLabel.text = "Targets Destroyed: " + str(num)
+
+func getDangerActivated():
+	return danger.visible

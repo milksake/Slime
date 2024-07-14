@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7c4y80v8agw3"]
+[gd_scene load_steps=6 format=3 uid="uid://c7c4y80v8agw3"]
 
 [ext_resource type="Script" path="res://avion/avion.gd" id="1_2mica"]
 [ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://assets/avioneta.png" id="2_eamsi"]
+[ext_resource type="AudioStream" uid="uid://ckt3rypi37ok4" path="res://assets/airplane_prop.ogg" id="3_gtv7d"]
 
 [sub_resource type="Gradient" id="Gradient_l4s10"]
 offsets = PackedFloat32Array(0)
@@ -23,3 +24,9 @@ texture = SubResource("GradientTexture2D_otgyb")
 [node name="Avioneta" type="Sprite2D" parent="."]
 position = Vector2(-9, 61)
 texture = ExtResource("2_eamsi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gtv7d")
+autoplay = true
+max_distance = 200000.0
+attenuation = 50.0
