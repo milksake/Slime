@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://avion/avion.gd" id="1_2mica"]
 [ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://assets/avioneta.png" id="2_eamsi"]
 
-[sub_resource type="Gradient" id="Gradient_12w2f"]
+[sub_resource type="Gradient" id="Gradient_l4s10"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.376471, 0.803922, 0.894118, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_otgyb"]
-gradient = SubResource("Gradient_12w2f")
+gradient = SubResource("Gradient_l4s10")
 width = 1920
 height = 1080
 

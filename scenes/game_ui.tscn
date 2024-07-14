@@ -1,0 +1,268 @@
+[gd_scene load_steps=14 format=3 uid="uid://naiwemymt183"]
+
+[ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_f2nqc"]
+[ext_resource type="FontFile" uid="uid://dhj5tnl0862ui" path="res://assets/dpcomic.ttf" id="1_fiqni"]
+[ext_resource type="Texture2D" uid="uid://cnug6bkf3ldi3" path="res://assets/keys.png" id="2_yrmrx"]
+[ext_resource type="Texture2D" uid="uid://ccqvcf161hy2d" path="res://assets/advertencia.png" id="3_pygdc"]
+[ext_resource type="Texture2D" uid="uid://0elyhhmmlpod" path="res://assets/flecha.png" id="4_x34uj"]
+
+[sub_resource type="Theme" id="Theme_1vfol"]
+default_font = ExtResource("1_fiqni")
+default_font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a5ta"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(15, 80, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sca8g"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(111, 64, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0hls"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(31, 32, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx275"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(31, 0, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krxwk"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(47, 0, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrj2j"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(-1, 31, 18, 18)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwr4o"]
+atlas = ExtResource("2_yrmrx")
+region = Rect2(47, 31, 18, 18)
+filter_clip = true
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_f2nqc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_1vfol")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 432.0
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Container" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_8a5ta")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Container"]
+layout_mode = 2
+text = "Binocular"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_sca8g")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Plane"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/HBoxContainer2"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_i0hls")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="Control/MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Pilot"
+
+[node name="BinocularUI" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -674.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/BinocularUI"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/BinocularUI/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("4_x34uj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/BinocularUI/HBoxContainer"]
+layout_mode = 2
+text = "Aim and Shoot"
+
+[node name="PlaneUI" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -674.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PlaneUI"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Container" type="HBoxContainer" parent="Control/PlaneUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PlaneUI/HBoxContainer/Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_wx275")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlaneUI/HBoxContainer/Container"]
+layout_mode = 2
+text = "Turn Left"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PlaneUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/PlaneUI/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_krxwk")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Control/PlaneUI/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Turn Right"
+
+[node name="MocoUI" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -674.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MocoUI"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Container" type="HBoxContainer" parent="Control/MocoUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MocoUI/HBoxContainer/Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_mrj2j")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/MocoUI/HBoxContainer/Container"]
+layout_mode = 2
+text = "??? Left"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MocoUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MocoUI/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = SubResource("AtlasTexture_uwr4o")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Control/MocoUI/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "??? Right"
+
+[node name="Danger" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="TextureRect" type="TextureRect" parent="Control/Danger"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_pygdc")
+
+[node name="Score" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 76.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="Control/Score"]
+layout_mode = 2
+text = "Score"

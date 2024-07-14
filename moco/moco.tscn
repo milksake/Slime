@@ -42,7 +42,7 @@ script = ExtResource("1_e8g7i")
 
 [node name="pilot" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-scale = Vector2(2, 2)
+scale = Vector2(2.1, 2.1)
 texture = ExtResource("2_ip176")
 hframes = 3
 

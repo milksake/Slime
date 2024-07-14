@@ -26,6 +26,10 @@ var processs = true
 var plane_angular_velocity = 0
 var moco_angular_velocity = 0
 
+var mouse_pos
+
+signal target_destroyed
+
 func _ready():
 	newTarget()
 	var cameraRect = camera.get_viewport_rect().size
@@ -34,6 +38,7 @@ func _ready():
 	dl = fmod(Vector2(-cameraRect.x/2, cameraRect.y/2).angle() + 4*PI, 2*PI)
 	dr = fmod(Vector2(cameraRect.x/2, cameraRect.y/2).angle() + 4*PI, 2*PI)
 	angular_velocity = 0.0
+	mouse_pos = camera.get_local_mouse_position()
 
 func _process(delta):
 	camera.position -= Vector2.from_angle(camera.rotation + PI/2) * plane_velocity * delta
@@ -50,7 +55,8 @@ func _process(delta):
 	arrow.position = disp.normalized() * (length - 110)
 	arrow.rotation = ang
 	
-	var mouse_pos = camera.get_local_mouse_position()
+	if processs:
+		mouse_pos = camera.get_local_mouse_position()
 	if target_symbol.position != mouse_pos:
 		target_symbol.position += target_symbol_velocity * (mouse_pos - target_symbol.position).normalized()
 	if target_symbol.position.distance_to(mouse_pos) <= target_symbol_velocity:
@@ -73,7 +79,7 @@ func _process(delta):
 		#angular_velocity -= 1.99
 	angular_velocity = plane_angular_velocity + moco_angular_velocity
 	
-	print("\t", angular_velocity)
+	#print("\t", angular_velocity)
 	if (angular_velocity != 0):
 		turn(angular_velocity * delta)
 	#print(angular_velocity)
@@ -108,6 +114,7 @@ func destroyTarget(_v, event, _i, targett):
 	if event.is_action_pressed("left_click") and target_symbol.has_overlapping_areas():
 		targett.die()
 		print("targetDestroyed")
+		target_destroyed.emit()
 		newTarget()
 
 func modifyAngularVelocity(radians):

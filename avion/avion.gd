@@ -40,4 +40,4 @@ func _process(delta):
 		emit_signal("speed_changed", rotation_speed*2)
 		
 	planeSprite.rotation = rotation_speed
-	print(rotation_speed)
+	#print(rotation_speed)

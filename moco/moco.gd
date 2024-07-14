@@ -2,6 +2,7 @@ extends Node2D
 
 signal moco_vel(vel_change)
 signal game_over
+signal danger
 
 const MIN_VEL: int = 20
 const MAX_VEL: int = 30
@@ -41,6 +42,7 @@ func _process(delta: float):
 		var vel = sign(randf() - 0.5) * randf_range(MIN_VEL_CHANGE, MAX_VEL_CHANGE)
 		moco_vel.emit(vel)
 		#print("emitted ", vel)
+		$pilot.rotation = sign(vel) * 0.02
 	
 	if (Input.is_action_pressed("limpiar_moco_izq") and \
 			!Input.is_action_pressed("limpiar_moco_der")) and processs:
@@ -64,6 +66,7 @@ func _process(delta: float):
 	if Input.is_action_just_released("limpiar_moco_izq") or \
 			Input.is_action_just_released("limpiar_moco_der"):
 		moco_vel.emit(0)
+		$pilot.rotation = 0
 		#print("emitted 0")
 		limpiar_moco()
 	
@@ -71,8 +74,9 @@ func _process(delta: float):
 			$der.position.y + actual_size_der > 1100) and game:
 		game_over.emit()
 		game = false
-		#print("game over")
-		
+	elif ($izq.position.y + actual_size_izq > 900 or \
+			$der.position.y + actual_size_der > 900) and game:
+		danger.emit()
 func limpiar_moco():
 	vel_izq = randi_range(MIN_VEL, MAX_VEL)
 	vel_der = randi_range(MIN_VEL, MAX_VEL)

@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ltgniatjig0"]
+[gd_scene load_steps=6 format=3 uid="uid://cf03jbbvoc4n6"]
 
 [ext_resource type="PackedScene" uid="uid://c7c4y80v8agw3" path="res://avion/avion.tscn" id="1_qars4"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_wmkvk"]
 [ext_resource type="PackedScene" uid="uid://c02pxyk02f7fw" path="res://scenes/binocular.tscn" id="2_3wswd"]
 [ext_resource type="PackedScene" uid="uid://dd7ianx2b570m" path="res://moco/moco.tscn" id="3_cosy0"]
+[ext_resource type="PackedScene" uid="uid://naiwemymt183" path="res://scenes/game_ui.tscn" id="5_q4mip"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("binocular", "avion", "moco")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("binocular", "avion", "moco", "ui")]
 script = ExtResource("1_wmkvk")
 binocular = NodePath("Binocular")
 avion = NodePath("avion")
 moco = NodePath("moco")
+ui = NodePath("GameUI")
 
 [node name="Binocular" parent="." instance=ExtResource("2_3wswd")]
 
@@ -17,6 +19,10 @@ moco = NodePath("moco")
 
 [node name="moco" parent="." instance=ExtResource("3_cosy0")]
 
+[node name="GameUI" parent="." instance=ExtResource("5_q4mip")]
+
+[connection signal="target_destroyed" from="Binocular" to="." method="_on_binocular_target_destroyed"]
 [connection signal="speed_changed" from="avion" to="." method="_on_avion_speed_changed"]
+[connection signal="danger" from="moco" to="." method="_on_moco_danger"]
 [connection signal="game_over" from="moco" to="." method="_on_moco_game_over"]
 [connection signal="moco_vel" from="moco" to="." method="_on_moco_moco_vel"]
