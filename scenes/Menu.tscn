@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0hhrwo723si"]
+[gd_scene load_steps=5 format=3 uid="uid://dy0hhrwo723si"]
 
 [ext_resource type="Texture2D" uid="uid://cbj28xkx8xtun" path="res://assets/logo.png" id="1_7aok0"]
+[ext_resource type="Texture2D" uid="uid://dqrl5igheevba" path="res://assets/avionetadelado.png" id="1_avioneta"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_oicxc"]
 [ext_resource type="FontFile" uid="uid://dhj5tnl0862ui" path="res://assets/dpcomic.ttf" id="2_181r6"]
 
@@ -12,7 +13,7 @@ offset_left = -110.0
 offset_top = -27.0
 offset_right = 2016.0
 offset_bottom = 1142.0
-color = Color(0.524237, 0.953337, 0.389216, 1)
+color = Color(1, 0.966079, 0.467849, 1)
 
 [node name="START" type="Button" parent="."]
 anchors_preset = 8
@@ -66,6 +67,11 @@ texture_filter = 1
 position = Vector2(0, 250)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7aok0")
+
+[node name="AvionetaDelado" type="Sprite2D" parent="."]
+position = Vector2(395, 790)
+scale = Vector2(2, 2)
+texture = ExtResource("1_avioneta")
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 
