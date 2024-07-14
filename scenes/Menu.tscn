@@ -11,7 +11,7 @@ offset_left = -110.0
 offset_top = -27.0
 offset_right = 2016.0
 offset_bottom = 1142.0
-color = Color(0.505882, 0.937255, 0.368627, 1)
+color = Color(0.524237, 0.953337, 0.389216, 1)
 
 [node name="START" type="Button" parent="."]
 anchors_preset = 8
@@ -47,6 +47,25 @@ text = "CONTROLES
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = -4.0
+offset_right = 11.0
+offset_bottom = 36.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(0, 250)
+scale = Vector2(5, 5)
+texture = ExtResource("1_7aok0")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+
 [node name="Controls" type="ColorRect" parent="."]
 visible = false
 anchors_preset = 8
@@ -81,23 +100,6 @@ offset_right = 1438.0
 offset_bottom = 113.0
 theme_override_font_sizes/font_size = 50
 text = "X"
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -29.0
-offset_top = -4.0
-offset_right = 11.0
-offset_bottom = 36.0
-grow_horizontal = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-texture_filter = 1
-position = Vector2(0, 250)
-scale = Vector2(5, 5)
-texture = ExtResource("1_7aok0")
 
 [connection signal="button_up" from="START" to="." method="_on_start_button_up"]
 [connection signal="pressed" from="CONTROLES" to="." method="_on_controles_pressed"]

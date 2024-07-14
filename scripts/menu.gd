@@ -16,6 +16,7 @@ func _on_start_button_up():
 
 
 func _on_controles_pressed():
+	
 	var controls = $Controls
 	controls.visible = true
 
