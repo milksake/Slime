@@ -71,7 +71,7 @@ func _process(delta):
 		#angular_velocity += 1.99
 	#if Input.is_action_pressed("ui_right"):
 		#angular_velocity -= 1.99
-	modifyAngularVelocity(plane_angular_velocity + moco_angular_velocity)
+	angular_velocity = plane_angular_velocity + moco_angular_velocity
 	
 	print("\t", angular_velocity)
 	if (angular_velocity != 0):

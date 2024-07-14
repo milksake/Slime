@@ -6,8 +6,8 @@ signal game_over
 const MIN_VEL: int = 20
 const MAX_VEL: int = 30
 const MOCO_VEL: float = 150
-const MIN_VEL_CHANGE: float = 0.2
-const MAX_VEL_CHANGE: float = 0.5
+const MIN_VEL_CHANGE: float = 0.5
+const MAX_VEL_CHANGE: float = 1.0
 
 var actual_size_izq: float
 var pos_izq: Vector2

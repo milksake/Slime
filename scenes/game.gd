@@ -14,7 +14,9 @@ var currScene = 0
 
 func _ready():
 	avion.hide()
+	avion.processs = false
 	moco.hide()
+	moco.processs = false
 
 func _process(delta):
 	if currScene != 0 and Input.is_action_just_pressed("change_to_binocular"):
