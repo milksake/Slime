@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://c02pxyk02f7fw"]
+[gd_scene load_steps=7 format=3 uid="uid://c02pxyk02f7fw"]
 
 [ext_resource type="Script" path="res://scripts/binocular.gd" id="1_k0oi4"]
 [ext_resource type="PackedScene" uid="uid://ccftxic4q1bno" path="res://scenes/target.tscn" id="2_cj21g"]
 [ext_resource type="PackedScene" uid="uid://uxwtk1n50hnr" path="res://scenes/arrow.tscn" id="3_jamr6"]
 [ext_resource type="Texture2D" uid="uid://bm8larv2opxml" path="res://assets/binoculares.png" id="3_rgv22"]
 [ext_resource type="PackedScene" uid="uid://dolwsfd4w08nk" path="res://scenes/target_symbol.tscn" id="4_ktapy"]
+[ext_resource type="Texture2D" uid="uid://bihdklb8s4hea" path="res://assets/mapa.png" id="6_n62ml"]
 
-[node name="Binocular" type="Node2D" node_paths=PackedStringArray("arrow", "camera", "target_symbol")]
+[node name="Binocular" type="Node2D" node_paths=PackedStringArray("arrow", "camera", "target_symbol", "map")]
 script = ExtResource("1_k0oi4")
 plane_velocity = 50.0
-target_symbol_velocity = 1.0
+target_symbol_velocity = 5.0
 decrease_angular_velocity_factor = 0.5
 target_scene = ExtResource("2_cj21g")
 arrow = NodePath("Camera2D/Arrow")
 camera = NodePath("Camera2D")
 target_symbol = NodePath("Camera2D/TargetSymbol")
+map = NodePath("Sprite2D")
 spawnAreaLimits = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,3 +31,9 @@ z_index = 2
 z_index = 1
 scale = Vector2(0.55, -0.569)
 texture = ExtResource("3_rgv22")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("6_n62ml")
+region_enabled = true
+region_rect = Rect2(0, 0, 9600, 5400)

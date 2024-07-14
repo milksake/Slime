@@ -7,6 +7,8 @@ var max_speed = 4.0
 var rotation_aceleration = 0.2
 var return_speed = 20
 
+@export var planeSprite : Sprite2D
+
 var processs = true
 
 signal speed_changed(new_speed)
@@ -28,13 +30,13 @@ func _process(delta):
 		emit_signal("speed_changed", rotation_speed)
 		print(rotation_speed)
 	else:
-		if abs(rotation) > 0.001:
-			var dir = sign(rotation)
+		if abs(planeSprite.rotation) > 0.001:
+			var dir = sign(planeSprite.rotation)
 			rotation_speed = -dir * return_speed * delta
 		else:
-			rotation = 0
+			planeSprite.rotation = 0
 			rotation_speed = 0
 			
 	rotation_speed = clamp(rotation_speed, -max_speed, max_speed)
-	rotation += rotation_speed * delta
-	rotation = clamp(rotation, -max_rotation, max_rotation)
+	planeSprite.rotation += rotation_speed * delta
+	planeSprite.rotation = clamp(planeSprite.rotation, -max_rotation, max_rotation)

@@ -8,6 +8,7 @@ extends Node2D
 @export var arrow : Arrow
 @export var camera : Camera2D
 @export var target_symbol : Area2D
+@export var map : Sprite2D
 
 @export var spawnAreaLimits : Rect2
 
@@ -76,6 +77,23 @@ func _process(delta):
 	if (angular_velocity != 0):
 		turn(angular_velocity * delta)
 	#print(angular_velocity)
+	
+	var cam_size = camera.get_viewport_rect().size
+	var cam_points : Array[Vector2] = [
+		camera.global_position + Vector2(-cam_size.x/2, -cam_size.y/2),
+		camera.global_position + Vector2(cam_size.x/2, -cam_size.y/2),
+		camera.global_position + Vector2(-cam_size.x/2, cam_size.y/2),
+		camera.global_position + Vector2(cam_size.x/2, cam_size.y/2)
+	]
+	for p in cam_points:
+		if p.x < map.global_position.x - 1920*1.5:
+			map.global_position.x -= 1920
+		if p.x > map.global_position.x + 1920*1.5:
+			map.global_position.x += 1920
+		if p.y < map.global_position.y - 1080*1.5:
+			map.global_position.y -= 1080
+		if p.y > map.global_position.y + 1080*1.5:
+			map.global_position.y += 1080
 
 func newTarget():
 	target = target_scene.instantiate()

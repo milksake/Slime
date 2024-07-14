@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7c4y80v8agw3"]
+[gd_scene load_steps=5 format=3 uid="uid://c7c4y80v8agw3"]
 
 [ext_resource type="Script" path="res://avion/avion.gd" id="1_2mica"]
 [ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://scripts/avioneta.png" id="2_mlaa0"]
 
-[node name="avion" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_12w2f"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.376471, 0.803922, 0.894118, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_otgyb"]
+gradient = SubResource("Gradient_12w2f")
+width = 1920
+height = 1080
+
+[node name="avion" type="Node2D" node_paths=PackedStringArray("planeSprite")]
 position = Vector2(960, 540)
 script = ExtResource("1_2mica")
+planeSprite = NodePath("Avioneta")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_otgyb")
 
 [node name="Avioneta" type="Sprite2D" parent="."]
 position = Vector2(-9, 61)
