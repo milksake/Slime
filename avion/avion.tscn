@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7c4y80v8agw3"]
 
 [ext_resource type="Script" path="res://avion/avion.gd" id="1_2mica"]
-[ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://scripts/avioneta.png" id="2_mlaa0"]
+[ext_resource type="Texture2D" uid="uid://bwx07ltrs1rxe" path="res://assets/avioneta.png" id="2_eamsi"]
 
 [sub_resource type="Gradient" id="Gradient_12w2f"]
 offsets = PackedFloat32Array(0)
@@ -22,4 +22,4 @@ texture = SubResource("GradientTexture2D_otgyb")
 
 [node name="Avioneta" type="Sprite2D" parent="."]
 position = Vector2(-9, 61)
-texture = ExtResource("2_mlaa0")
+texture = ExtResource("2_eamsi")

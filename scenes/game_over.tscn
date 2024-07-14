@@ -1,8 +1,22 @@
-[gd_scene format=3 uid="uid://b0le2e111uuuc"]
+[gd_scene load_steps=3 format=3 uid="uid://clhekggyjip7i"]
+
+[ext_resource type="Texture2D" uid="uid://dmanc5tntu4oi" path="res://assets/game_over.png" id="1_pex21"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_riwit"]
+font_size = 128
 
 [node name="GameOver" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pex21")
+
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Game over + skill issue + git gud"
+offset_left = 594.0
+offset_top = 191.0
+offset_right = 1328.0
+offset_bottom = 366.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_riwit")

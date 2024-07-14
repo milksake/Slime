@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf03jbbvoc4n6"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ltgniatjig0"]
 
 [ext_resource type="PackedScene" uid="uid://c7c4y80v8agw3" path="res://avion/avion.tscn" id="1_qars4"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_wmkvk"]
